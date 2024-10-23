@@ -23,7 +23,7 @@ resource virtualNetwork 'Microsoft.Network/virtualNetworks@2024-01-01' = {
       {
         name: 'Subnet1'
         properties: {
-          addressPrefix: '10.0.1.024'
+          addressPrefix: '10.0.1.0/24'
         }
       }
       {
@@ -39,4 +39,4 @@ resource virtualNetwork 'Microsoft.Network/virtualNetworks@2024-01-01' = {
 //use for the deploy stack 
 
 // az group create --name 'demoRg' --location 'centralus'
-// az stack group create --name 'demoStack' --resource-group 'demoRg' --template-file './main.bicep' --action-on-unmanage 'detachAll' --deny-settings-mode 'none'
+// az stack group create --name 'demoStack' --resource-group 'demoRg' --template-file './main.bicep' --action-on-unmanage 'deleteAll' --deny-settings-mode 'none'
