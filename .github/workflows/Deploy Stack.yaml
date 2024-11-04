@@ -32,10 +32,4 @@ jobs:
           azcliversion: latest
           inlinescript: |
             az group create --name 'devstack-${{inputs.stackname}}' --location 'canadacentral'
-
-      - name: Deploy Stack
-        uses: azure/cli@v2
-        with:
-          azcliversion: latest
-          inlinescript: |
             az stack group create --name 'stackgroup-${{inputs.stackname}}' --resource-group 'devstack-${{inputs.stackname}}' --template-file './main.bicep' --action-on-unmanage 'deleteAll' --deny-settings-mode 'none'
