@@ -26,14 +26,14 @@ jobs:
           tenant-id: ${{ secrets.AZURE_TENANT_ID}}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID}}
 
-      - name: Azure CLI script
+      - name: Create Resource Group
         uses: azure/cli@v2
         with:
           azcliversion: latest
           inlinescript: |
             az group create --name 'devstack-${{inputs.stackname}}' --location 'canadacentral'
 
-      - name: Azure CLI script
+      - name: Deploy Stack
         uses: azure/cli@v2
         with:
           azcliversion: latest
